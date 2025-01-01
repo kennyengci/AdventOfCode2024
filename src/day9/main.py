@@ -96,6 +96,8 @@ def format_disk_part_2(map: List[str]) -> None:
         can_still_format = len(files) > 0
 
         if can_still_format:
+            # Recalculating the gaps and files is expensive.
+            # TODO: refactor to not require this.
             gaps, _ = _calculate_gaps(map)
 
 def get_checksum(map: List[str]) -> int:
