@@ -36,7 +36,7 @@ def solution(input: List[str], blinks: int) -> int:
 
     return len(stones)
 
-print("Part 1: ", solution(input, 75))
+print("Part 1: ", solution(input, 25))
 
 # got a bit stuck on this part and turned to reddit for inspiration
 @functools.cache
@@ -64,11 +64,7 @@ def blink(stone: int, times: int) -> int:
     
 def solution_part2(input: List[str], times: int) -> int:
     stones = [int(stone) for stone in input.split()]
-    count = 0
 
-    for stone in stones:
-        count += blink(stone, times)
-
-    return count
+    return sum(blink(stone, times) for stone in stones)
 
 print("Part 2: ", solution_part2(input, 75))
